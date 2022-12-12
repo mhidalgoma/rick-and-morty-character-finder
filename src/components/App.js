@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 function App() {
   //VARIABLES ESTADO
   const [data, setData] = useState([]);
+  const [inputNameFilter, setInputNameFilter] = useState('');
+  const [filteredData, setFilteredData] = useState([]);
 
   //USE EFFECT
   useEffect(() => {
@@ -26,21 +28,33 @@ function App() {
       });
   }, []);
 
-  console.log(data);
-
   //FUNCIONES HANDLER
+  const handleInputName = (ev) => {
+    setInputNameFilter(ev.target.value);
+    const filteredCharacters = data.filter((character) =>
+      character.name.toLowerCase().includes(ev.target.value.toLowerCase())
+    );
+    setFilteredData(filteredCharacters);
+  };
   //FUNCIONES RENDER
+  const renderOneCharacter = (character) => {
+    return (
+      <li key={character.id}>
+        <img src={character.image} alt={`Image of ${character.name}`} />
+        <p>{character.name}</p>
+        <p>{character.species}</p>
+      </li>
+    );
+  };
+
   const renderCharacters = () => {
-    const card = data.map((character) => {
-      return (
-        <li>
-          <img src={character.image} alt={`Image of ${character.name}`} />
-          <p>{character.name}</p>
-          <p>{character.species}</p>
-        </li>
-      );
-    });
-    return card;
+    let cards = '';
+    if (inputNameFilter === '') {
+      cards = data.map((character) => renderOneCharacter(character));
+    } else {
+      cards = filteredData.map((character) => renderOneCharacter(character));
+    }
+    return cards;
   };
 
   return (
@@ -49,6 +63,9 @@ function App() {
         <h1>Rick y Morty</h1>
       </header>
       <main>
+        <form>
+          <input onChange={handleInputName} type="text" />
+        </form>
         <ul>{renderCharacters()}</ul>
       </main>
     </div>
