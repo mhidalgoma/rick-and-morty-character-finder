@@ -1,4 +1,5 @@
 import '../styles/App.css';
+import { useState, useEffect } from 'react';
 
 function App() {
   //VARIABLES ESTADO
@@ -12,6 +13,8 @@ function App() {
         setData(data.results);
       });
   }, []);
+
+  console.log(data);
 
   //FUNCIONES HANDLER
   return (
