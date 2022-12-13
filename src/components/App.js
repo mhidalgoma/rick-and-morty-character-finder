@@ -1,5 +1,7 @@
 import '../styles/App.css';
 import { useState, useEffect } from 'react';
+import CharacterList from './CharacterList';
+import Filters from './Filters';
 
 function App() {
   //VARIABLES ESTADO
@@ -40,7 +42,7 @@ function App() {
   const renderOneCharacter = (character) => {
     return (
       <li key={character.id}>
-        <img src={character.image} alt={`Image of ${character.name}`} />
+        <img src={character.image} alt={character.name} />
         <p>{character.name}</p>
         <p>{character.species}</p>
       </li>
@@ -63,10 +65,8 @@ function App() {
         <h1>Rick y Morty</h1>
       </header>
       <main>
-        <form>
-          <input onChange={handleInputName} type="text" />
-        </form>
-        <ul>{renderCharacters()}</ul>
+        <Filters handleInputName={handleInputName}></Filters>
+        <CharacterList renderCharacters={renderCharacters}></CharacterList>
       </main>
     </div>
   );
