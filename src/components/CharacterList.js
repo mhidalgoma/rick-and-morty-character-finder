@@ -1,22 +1,16 @@
+import { Link } from 'react-router-dom';
 import CharacterCard from './CharacterCard';
 
 const CharacterList = ({ data }) => {
   const characterCards = data.map((character) => {
     return <CharacterCard character={character}></CharacterCard>;
   });
-
-  // const renderCharacters = () => {
-  //   let cards = '';
-  //   if (inputNameFilter === '') {
-  //     cards = data.map((character) => renderOneCharacter(character));
-  //   } else {
-  //     cards = filteredData.map((character) => renderOneCharacter(character));
-  //   }
-  //   return cards;
-  // };
+  const errorMsg =
+    characterCards.length === 0 ? 'No hay personajes con ese nombre' : '';
 
   return (
     <section>
+      <p>{errorMsg}</p>
       <ul>{characterCards}</ul>
     </section>
   );

@@ -25,7 +25,6 @@ function App() {
     character.name.toLowerCase().includes(inputNameFilter.toLowerCase())
   );
   const url = useLocation();
-  console.log(url.pathname);
   const dataUrl = matchPath('/character/:characterId', url.pathname);
   const characterId = dataUrl !== null ? dataUrl.params.characterId : null;
   const characterClicked = data.find(
