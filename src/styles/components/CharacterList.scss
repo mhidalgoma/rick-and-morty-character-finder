@@ -1,0 +1,15 @@
+.characters {
+  display: flex;
+  flex-direction: column;
+
+  &__error-msg {
+    font-size: 18px;
+    color: #76bf60;
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: (auto auto auto auto);
+    gap: 20px;
+    padding-bottom: 80px;
+  }
+}

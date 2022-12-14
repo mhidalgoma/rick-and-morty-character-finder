@@ -1,0 +1,35 @@
+.card {
+  width: 200px;
+  height: 280px;
+
+  &__link {
+    all: unset;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    &__img {
+      width: 100%;
+    }
+    &__text {
+      width: 100%;
+      height: 80px;
+      background-color: #15acc6;
+      font-size: 18px;
+      line-height: 1.2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3px;
+      &--name {
+        font-weight: bold;
+        padding-left: 10px;
+      }
+      &--species {
+        padding-left: 10px;
+      }
+    }
+  }
+}

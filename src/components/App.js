@@ -1,4 +1,6 @@
-import '../styles/App.css';
+import '../styles/App.scss';
+import '../styles/layout/Header.scss';
+import logo from '../images/logo.png';
 import { useState, useEffect } from 'react';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
@@ -28,23 +30,28 @@ function App() {
   const dataUrl = matchPath('/character/:characterId', url.pathname);
   const characterId = dataUrl !== null ? dataUrl.params.characterId : null;
   const characterClicked = data.find(
-    (character) => character.id === characterId
+    (character) => character.id === parseInt(characterId)
   );
+  // console.log(characterId);
+  // console.log(characterClicked);
 
   //FUNCIONES RENDER
 
   return (
     <div>
-      <header>
-        <h1>Rick y Morty</h1>
+      <header className="header">
+        <img className="header__logo" src={logo} alt="Logo Rick and Morty" />
       </header>
-      <main>
+      <main className="main">
         <Routes>
           <Route
             path="/"
             element={
               <>
-                <Filters handleInputName={handleInputName}></Filters>
+                <Filters
+                  handleInputName={handleInputName}
+                  inputNameFilter={inputNameFilter}
+                ></Filters>
                 <CharacterList data={filteredCharacters}></CharacterList>
               </>
             }
