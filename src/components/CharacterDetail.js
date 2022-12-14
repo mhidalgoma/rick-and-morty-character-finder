@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import '../styles/components/CharacterDetail.scss';
 import tape from '../images/tape.png';
+import error from '../images/error.png';
+import portal from '../images/portal.png';
 const CharacterDetail = (character) => {
   if (character.character !== undefined) {
     return (
@@ -38,7 +40,28 @@ const CharacterDetail = (character) => {
       </article>
     );
   } else {
-    return <p>El personaje que intentas buscar no existe</p>;
+    return (
+      <article className="error-url">
+        <img className="error-url__img" src={error} alt="Rick and Morty" />
+        <div className="error-url__text">
+          <div className="error-url__text__404">
+            <p>4</p>
+            <img
+              className="error-url__text__404--img"
+              src={portal}
+              alt="Green portal"
+            />
+            <p>4</p>
+          </div>
+          <p className="error-url__text__msg">
+            El personaje que intentas buscar no existe
+          </p>
+          <Link className="error-url__text__btn" to="/">
+            Volver a personajes
+          </Link>
+        </div>
+      </article>
+    );
   }
 };
 export default CharacterDetail;

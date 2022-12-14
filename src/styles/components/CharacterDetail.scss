@@ -55,3 +55,48 @@
     }
   }
 }
+
+.error-url {
+  height: 68vh;
+  width: 90vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__img {
+    width: 500px;
+    height: 445px;
+  }
+  &__text {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &__404 {
+      display: flex;
+      font-size: 200px;
+      font-weight: 800;
+      gap: 2px;
+      &--img {
+        width: 150px;
+        height: 150px;
+        transform: translate(0%, 15%);
+      }
+    }
+    &__msg {
+      font-size: 30px;
+      font-weight: 800;
+      padding: 30px;
+    }
+    &__btn {
+      all: unset;
+      font-size: 18px;
+      font-weight: 800;
+      padding: 12px;
+      background-color: #0cadc8;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+  }
+}
