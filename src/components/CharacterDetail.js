@@ -11,12 +11,14 @@ const CharacterDetail = (character) => {
           Volver a personajes
         </Link>
         <div className="detail">
-          <img className="detail__tape" src={tape} alt="" />
-          <img
-            className="detail__img"
-            src={character.character.image}
-            alt={character.character.name}
-          />
+          <div className="detail__img">
+            <img className="detail__img--tape" src={tape} alt="" />
+            <img
+              className="detail__img--img"
+              src={character.character.image}
+              alt={character.character.name}
+            />
+          </div>
           <div className="detail__text">
             <p className="detail__text--name">{character.character.name}</p>
             <p className="detail__text--status">
