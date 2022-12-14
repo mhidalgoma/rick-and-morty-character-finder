@@ -26,14 +26,14 @@ function App() {
   const filteredCharacters = data.filter((character) =>
     character.name.toLowerCase().includes(inputNameFilter.toLowerCase())
   );
+
   const url = useLocation();
   const dataUrl = matchPath('/character/:characterId', url.pathname);
   const characterId = dataUrl !== null ? dataUrl.params.characterId : null;
   const characterClicked = data.find(
     (character) => character.id === parseInt(characterId)
   );
-  // console.log(characterId);
-  // console.log(characterClicked);
+  console.log(characterClicked);
 
   //FUNCIONES RENDER
 
