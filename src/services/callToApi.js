@@ -13,7 +13,20 @@ const callToApi = () => {
           status: character.status,
         };
       });
-      return cleanData;
+      const sortedCleanData = cleanData.sort((a, b) => {
+        let fa = a.name.toLowerCase();
+        let fb = b.name.toLowerCase();
+
+        if (fa < fb) {
+          return -1;
+        }
+        if (fa > fb) {
+          return 1;
+        }
+        return 0;
+      });
+
+      return sortedCleanData;
     });
 };
 export default callToApi;

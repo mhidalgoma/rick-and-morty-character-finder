@@ -8,7 +8,7 @@ const CharacterDetail = (character) => {
     return (
       <article className="box">
         <Link className="return-link" to="/">
-          Volver a personajes
+          Go back to characters
         </Link>
         <div className="detail">
           <div className="detail__img">
@@ -56,10 +56,10 @@ const CharacterDetail = (character) => {
             <p>4</p>
           </div>
           <p className="error-url__text__msg">
-            El personaje que intentas buscar no existe
+            The character you're trying to find doesn't exist
           </p>
           <Link className="error-url__text__btn" to="/">
-            Volver a personajes
+            Go back to characters
           </Link>
         </div>
       </article>

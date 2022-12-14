@@ -10,10 +10,10 @@ const Filters = (props) => {
   };
   return (
     <>
-      <h1 className="main__h1">Búsqueda de personajes:</h1>
+      <h1 className="main__h1">Find characters from Rick and Morty:</h1>
       <form className="filters">
         <div className="filters__name">
-          <label className="filters__name--label">Escribe un nombre:</label>
+          <label className="filters__name--label">Write a name:</label>
           <input
             className="filters__name--input"
             onChange={handleInputChange}
@@ -23,7 +23,9 @@ const Filters = (props) => {
           />
         </div>
         <div className="filters__species">
-          <legend className="filters__species--label">Elije la especie:</legend>
+          <legend className="filters__species--label">
+            Choose the species:
+          </legend>
           <div className="filters__species--boxes">
             <div>
               <input

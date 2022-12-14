@@ -9,17 +9,14 @@ import callToApi from '../services/callToApi';
 import { Routes, Route, matchPath, useLocation } from 'react-router-dom';
 
 function App() {
-  //VARIABLES ESTADO
   const [data, setData] = useState([]);
   const [inputNameFilter, setInputNameFilter] = useState('');
   const [speciesFilter, setSpeciesFilter] = useState([]);
 
-  //USE EFFECT
   useEffect(() => {
     callToApi().then((cleanData) => setData(cleanData));
   }, []);
 
-  //FUNCIONES HANDLER
   const handleInputName = (value) => {
     setInputNameFilter(value);
   };
@@ -51,9 +48,6 @@ function App() {
   const characterClicked = data.find(
     (character) => character.id === parseInt(characterId)
   );
-  console.log(characterClicked);
-
-  //FUNCIONES RENDER
 
   return (
     <div>
@@ -76,7 +70,6 @@ function App() {
               </>
             }
           />
-
           <Route
             path="/character/:characterId"
             element={<CharacterDetail character={characterClicked} />}

@@ -2,7 +2,6 @@ import CharacterCard from './CharacterCard';
 import '../styles/components/CharacterList.scss';
 
 const CharacterList = ({ data }) => {
-  console.log(data);
   const characterCards = data.map((character) => {
     return (
       <CharacterCard key={character.id} character={character}></CharacterCard>
