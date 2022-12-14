@@ -8,7 +8,6 @@ function App() {
   //VARIABLES ESTADO
   const [data, setData] = useState([]);
   const [inputNameFilter, setInputNameFilter] = useState('');
-  const [filteredData, setFilteredData] = useState([]);
 
   //USE EFFECT
   useEffect(() => {
@@ -16,13 +15,14 @@ function App() {
   }, []);
 
   //FUNCIONES HANDLER
-  const handleInputName = (ev) => {
-    setInputNameFilter(ev.target.value);
-    const filteredCharacters = data.filter((character) =>
-      character.name.toLowerCase().includes(ev.target.value.toLowerCase())
-    );
-    setFilteredData(filteredCharacters);
+  const handleInputName = (value) => {
+    setInputNameFilter(value);
   };
+
+  const filteredCharacters = data.filter((character) =>
+    character.name.toLowerCase().includes(inputNameFilter.toLowerCase())
+  );
+
   //FUNCIONES RENDER
 
   return (
@@ -32,7 +32,7 @@ function App() {
       </header>
       <main>
         <Filters handleInputName={handleInputName}></Filters>
-        <CharacterList data={data}></CharacterList>
+        <CharacterList data={filteredCharacters}></CharacterList>
       </main>
     </div>
   );
