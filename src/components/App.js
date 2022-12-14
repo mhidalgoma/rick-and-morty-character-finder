@@ -12,6 +12,7 @@ function App() {
   //VARIABLES ESTADO
   const [data, setData] = useState([]);
   const [inputNameFilter, setInputNameFilter] = useState('');
+  const [speciesFilter, setSpeciesFilter] = useState([]);
 
   //USE EFFECT
   useEffect(() => {
@@ -22,10 +23,27 @@ function App() {
   const handleInputName = (value) => {
     setInputNameFilter(value);
   };
+  const handleSpeciesFilter = (value) => {
+    if (speciesFilter.includes(value)) {
+      const position = speciesFilter.indexOf(value);
+      speciesFilter.splice(position, 1);
+      setSpeciesFilter([...speciesFilter]);
+    } else {
+      setSpeciesFilter([...speciesFilter, value]);
+    }
+  };
 
-  const filteredCharacters = data.filter((character) =>
-    character.name.toLowerCase().includes(inputNameFilter.toLowerCase())
-  );
+  const filteredCharacters = data
+    .filter((character) =>
+      character.name.toLowerCase().includes(inputNameFilter.toLowerCase())
+    )
+    .filter((character) => {
+      if (speciesFilter.length === 0) {
+        return true;
+      } else {
+        return speciesFilter.includes(character.species);
+      }
+    });
 
   const url = useLocation();
   const dataUrl = matchPath('/character/:characterId', url.pathname);
@@ -51,6 +69,8 @@ function App() {
                 <Filters
                   handleInputName={handleInputName}
                   inputNameFilter={inputNameFilter}
+                  handleSpeciesFilter={handleSpeciesFilter}
+                  speciesFilter={speciesFilter}
                 ></Filters>
                 <CharacterList data={filteredCharacters}></CharacterList>
               </>
