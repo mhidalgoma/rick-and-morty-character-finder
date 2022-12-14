@@ -1,28 +1,59 @@
 .filters {
+  width: 700px;
   display: flex;
-  gap: 30px;
+  gap: 50px;
+  justify-content: center;
   margin: 30px 0px;
 
   &__name {
     display: flex;
     flex-direction: column;
+    border: 2px solid #4b9535;
+    padding: 10px;
+    width: 230px;
+    align-items: center;
+    &--label {
+      background-color: black;
+      padding: 0px 15px;
+      transform: translate(0%, -120%);
+      color: #4b9535;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
     &--input {
       width: 200px;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 800;
       color: #10acc7;
       text-align: center;
       padding: 5px 0px;
-      margin: 20px 0px 10px 0px;
+      transform: translate(0%, -20%);
     }
   }
   &__species {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    border: 2px solid #17abc6;
+    padding: 10px;
+    width: 230px;
+    align-items: center;
+    &--label {
+      background-color: black;
+      padding: 0px 15px;
+      transform: translate(0%, -120%);
+      color: #17abc6;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
     &--boxes {
       display: flex;
-      gap: 15px;
+      gap: 30px;
+      font-size: 18px;
+      font-weight: 800;
+      justify-content: space-around;
+      transform: translate(0%, -70%);
     }
   }
 }
