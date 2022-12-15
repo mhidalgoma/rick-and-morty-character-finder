@@ -12,11 +12,11 @@ function App() {
   const [data, setData] = useState([]);
   const [inputNameFilter, setInputNameFilter] = useState('');
   const [speciesFilter, setSpeciesFilter] = useState([]);
+  const [genderFilter, setGenderFilter] = useState('all');
 
   useEffect(() => {
     callToApi().then((cleanData) => setData(cleanData));
   }, []);
-
   const handleInputName = (value) => {
     setInputNameFilter(value);
   };
@@ -30,6 +30,10 @@ function App() {
     }
   };
 
+  const handleGenderFilter = (value) => {
+    setGenderFilter(value);
+  };
+
   const filteredCharacters = data
     .filter((character) =>
       character.name.toLowerCase().includes(inputNameFilter.toLowerCase())
@@ -40,7 +44,10 @@ function App() {
       } else {
         return speciesFilter.includes(character.species);
       }
-    });
+    })
+    .filter((character) =>
+      genderFilter === 'all' ? true : character.gender === genderFilter
+    );
 
   const url = useLocation();
   const dataUrl = matchPath('/character/:characterId', url.pathname);
@@ -65,6 +72,8 @@ function App() {
                   inputNameFilter={inputNameFilter}
                   handleSpeciesFilter={handleSpeciesFilter}
                   speciesFilter={speciesFilter}
+                  handleGenderFilter={handleGenderFilter}
+                  genderFilter={genderFilter}
                 ></Filters>
                 <CharacterList data={filteredCharacters}></CharacterList>
               </>

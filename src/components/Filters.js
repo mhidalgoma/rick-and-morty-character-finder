@@ -7,6 +7,11 @@ const Filters = (props) => {
 
   const handleSpeciesChange = (ev) => {
     props.handleSpeciesFilter(ev.target.value);
+    console.log(ev.target.value);
+  };
+
+  const handleGenderChange = (ev) => {
+    props.handleGenderFilter(ev.target.value);
   };
   return (
     <>
@@ -34,7 +39,7 @@ const Filters = (props) => {
                 value="Human"
                 checked={props.speciesFilter.includes('Human')}
               />
-              <label htmlFor="human">Humana</label>
+              <label htmlFor="human">Human</label>
             </div>
             <div>
               <input
@@ -46,6 +51,23 @@ const Filters = (props) => {
               <label htmlFor="alien">Alien</label>
             </div>
           </div>
+        </div>
+        <div className="filters__gender">
+          <label className="filters__gender--label" htmlFor="gender">
+            Choose a gender:
+          </label>
+          <select
+            className="filters__gender--select"
+            onChange={handleGenderChange}
+            name="gender"
+            id="gender"
+            value={props.genderFilter}
+          >
+            <option value="all">All</option>
+            <option value="unknown">Unknown</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
         </div>
       </form>
     </>

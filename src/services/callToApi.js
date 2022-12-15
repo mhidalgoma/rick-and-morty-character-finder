@@ -11,6 +11,7 @@ const callToApi = () => {
           planet: character.origin.name,
           episodes: character.episode.length,
           status: character.status,
+          gender: character.gender,
         };
       });
       const sortedCleanData = cleanData.sort((a, b) => {

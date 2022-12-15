@@ -1,5 +1,5 @@
 .filters {
-  width: 700px;
+  width: 900px;
   display: flex;
   gap: 50px;
   justify-content: center;
@@ -22,12 +22,12 @@
     }
     &--input {
       width: 200px;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 800;
       color: #10acc7;
       text-align: center;
       padding: 5px 0px;
-      transform: translate(0%, -20%);
+      transform: translate(0%, -5%);
     }
   }
   &__species {
@@ -54,6 +54,34 @@
       font-weight: 800;
       justify-content: space-around;
       transform: translate(0%, -70%);
+    }
+  }
+  &__gender {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 2px solid #4b9535;
+    padding: 10px;
+    width: 230px;
+    align-items: center;
+    &--label {
+      background-color: black;
+      padding: 0px 15px;
+      transform: translate(0%, -120%);
+      color: #4b9535;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    &--select {
+      display: flex;
+      gap: 30px;
+      font-size: 16px;
+      font-weight: 800;
+      transform: translate(0%, -50%);
+      height: 30px;
+      width: 150px;
+      text-align: center;
+      color: #17abc6;
     }
   }
 }
