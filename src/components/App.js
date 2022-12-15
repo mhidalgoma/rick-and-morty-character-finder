@@ -53,7 +53,7 @@ function App() {
   const dataUrl = matchPath('/character/:characterId', url.pathname);
   const characterId = dataUrl !== null ? dataUrl.params.characterId : null;
   const characterClicked = data.find(
-    (character) => character.id === parseInt(characterId)
+    (character) => character.id.toString() === characterId
   );
 
   return (
